@@ -20,10 +20,10 @@ class Show < ActiveRecord::Base
   end
   
   def self.popular_shows
-    self.class.where(:rating > 5, rating)
+    self.where("rating >= 5", 5)
   end
   
-  def shows_by_alphabetical_order
-    self.class.order(name: :asc)
+  def self.shows_by_alphabetical_order
+    self.order(:name)
   end
 end
